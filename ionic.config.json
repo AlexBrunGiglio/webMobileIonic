@@ -1,0 +1,7 @@
+{
+  "name": "webMobileIonic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
