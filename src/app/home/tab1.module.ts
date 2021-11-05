@@ -4,15 +4,24 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Tab1Page } from './tab1.page';
 
-import { Tab1PageRoutingModule } from './tab1-routing.module';
+import { RouterModule, Routes } from '@angular/router';
+
+
+const routes: Routes = [
+  {
+    path: '',
+    component: Tab1Page,
+  }
+];
 
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
     FormsModule,
-    Tab1PageRoutingModule,
+    RouterModule.forChild(routes),
   ],
-  declarations: [Tab1Page]
+  declarations: [Tab1Page],
+  exports: [RouterModule],
 })
 export class Tab1PageModule { }
