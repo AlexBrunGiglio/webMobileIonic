@@ -2,18 +2,48 @@ import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
-import { TabsPageRoutingModule } from './tabs-routing.module';
-
 import { TabsPage } from './tabs.page';
+import { RouterModule, Routes } from '@angular/router';
+import { RoutesList } from '../../environments/routes';
 
+const routes: Routes = [
+  {
+    path: '',
+    component: TabsPage,
+    children: [
+      {
+        path: RoutesList.Home,
+        loadChildren: () => import('../home/tab1.module').then(m => m.Tab1PageModule)
+      },
+      {
+        path: RoutesList.Other,
+        loadChildren: () => import('../other/tab2.module').then(m => m.Tab2PageModule)
+      },
+      {
+        path: RoutesList.Settings,
+        loadChildren: () => import('../settings/tab3.module').then(m => m.Tab3PageModule)
+      },
+      {
+        path: '',
+        redirectTo: '/tabs/tab1',
+        pathMatch: 'full'
+      }
+    ]
+  },
+  {
+    path: '',
+    redirectTo: RoutesList.Home,
+    pathMatch: 'full'
+  }
+];
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
     FormsModule,
-    TabsPageRoutingModule
+    RouterModule.forChild(routes),
   ],
   declarations: [TabsPage]
 })
-export class TabsPageModule {}
+export class TabsPageModule { }
+
