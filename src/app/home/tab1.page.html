@@ -7,13 +7,13 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-card>
+  <ion-card *ngFor="let language of languageList">
     <ion-card-header>
-      <ion-card-title>item.name</ion-card-title>
+      <ion-card-title>{{language.order}}. {{language.name |titlecase}}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <div class="language-img">
-        <img style="height: 100px;" src="http://assets.stickpng.com/images/5847ea22cef1014c0b5e4833.png" alt="">
+        <img style="height: 100px;" [src]="language.imgUrl" [alt]="language.name">
       </div>
       <div class="card-icon-action">
         <a [routerLink]="['/' + routes.Home]" routerLinkActive="router-link-active" (click)="editProperty()">
