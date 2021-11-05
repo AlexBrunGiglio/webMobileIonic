@@ -1,0 +1,34 @@
+<ion-header collapse="condense" [translucent]="true" slot="end">
+    <ion-toolbar>
+        <ion-buttons slot="end">
+            <ion-button (click)="dismiss()">Fermer</ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card>
+        <ion-card-header>
+            <ion-card-title>{{item.order}}. {{item.name |titlecase}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <ion-item>
+                <ion-label fixed="">Label</ion-label>
+                <ion-input placeholder="Label" [(ngModel)]="item.name"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label fixed="">Ordre</ion-label>
+                <ion-input placeholder="Ordre" type="number" [(ngModel)]="item.order"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label fixed="">Url</ion-label>
+                <ion-input placeholder="Url" type="url" [(ngModel)]="item.imgUrl"></ion-input>
+            </ion-item>
+        </ion-card-content>
+        <ion-card-content>
+            <div class="language-img">
+                <img style="height: 50px;" [src]="item.imgUrl" [alt]="item.name">
+            </div>
+        </ion-card-content>
+    </ion-card>
+</ion-content>
