@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RoutesList } from '../../environments/routes';
 
 @Component({
   selector: 'app-tabs',
@@ -6,7 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['tabs.page.scss']
 })
 export class TabsPage {
-
-  constructor() {}
+  routes = RoutesList;
+  constructor() { }
 
 }
