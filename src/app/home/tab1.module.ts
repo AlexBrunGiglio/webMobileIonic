@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { Tab1Page } from './tab1.page';
 
 import { RouterModule, Routes } from '@angular/router';
+import { LanguageModule } from '../components/language-dialog/language-dialog.module';
 
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     RouterModule.forChild(routes),
+    LanguageModule,
   ],
   declarations: [Tab1Page],
   exports: [RouterModule],
