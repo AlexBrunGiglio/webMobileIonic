@@ -8,7 +8,7 @@
 
 <ion-content [fullscreen]="true">
   <div data-aos="fade-right">
-    <ion-card *ngFor="let language of languageList">
+    <ion-card *ngFor="let language of languageList" (click)="editProperty(language)">
       <ion-card-header>
         <ion-card-title>{{language.order}}. {{language.name |titlecase}}</ion-card-title>
       </ion-card-header>
@@ -17,9 +17,9 @@
           <img style="height: 100px;" [src]="language.imgUrl" [alt]="language.name">
         </div>
         <div class="card-icon-action">
-          <a [routerLink]="['/' + routes.Home]" routerLinkActive="router-link-active" (click)="editProperty(language)">
-            <ion-icon slot="start" name="create"></ion-icon>
-          </a>
+          <!-- <a (click)="editProperty(language)">
+            <ion-icon slot="start" name=""></ion-icon>
+          </a> -->
           <a (click)="openProperty()">
             <ion-icon slot="start" name="open"></ion-icon>
           </a>
