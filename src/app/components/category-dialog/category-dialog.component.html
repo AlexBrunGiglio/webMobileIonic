@@ -1,0 +1,39 @@
+<ion-header collapse="condense" [translucent]="true" slot="end">
+    <ion-toolbar>
+        <ion-buttons slot="end">
+            <ion-button (click)="dismiss()">Fermer</ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card>
+        <ion-card-header>
+            <ion-card-title> {{itemToCreate.name}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <ion-item>
+                <ion-label fixed="">Label</ion-label>
+                <ion-input placeholder="Label" [(ngModel)]="itemToCreate.name"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label fixed="">Ordre</ion-label>
+                <ion-input placeholder="Ordre" type="number" [(ngModel)]="itemToCreate.order"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label fixed="">Description</ion-label>
+                <ion-input placeholder="Description" [(ngModel)]="itemToCreate.description"></ion-input>
+            </ion-item>
+        </ion-card-content>
+        <ion-card-content>
+            <div class="actions">
+                <ion-button expand="block" (click)="save()">
+                    Confirmer
+                </ion-button>
+                <ion-button *ngIf="!isNew" expand="block" color="danger">
+                    Supprimer
+                </ion-button>
+            </div>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

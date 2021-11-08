@@ -3,6 +3,7 @@ import { ModalController, NavController } from '@ionic/angular';
 import { languageKey } from '../../environments/constant';
 import { RoutesList } from '../../environments/routes';
 import { MainDataList } from '../app.component';
+import { CategoryComponent } from '../components/category-dialog/category-dialog.component';
 
 export interface Type {
   name: string;
@@ -32,5 +33,24 @@ export class Tab1Page {
 
   public openItem(item: MainDataList): void {
     this.navCtrl.navigateForward(['/' + RoutesList.Home + '/' + item.code]);
+  }
+
+  async openDialog() {
+    const item: MainDataList = {
+      code: '',
+      description: '',
+      name: '',
+      values: [],
+      order: null,
+    };
+    const modal = await this.modalController.create({
+      component: CategoryComponent,
+      componentProps: {
+        // eslint-disable-next-line object-shorthand
+        item: item,
+        isNew: true
+      },
+    });
+    return await modal.present();
   }
 }
