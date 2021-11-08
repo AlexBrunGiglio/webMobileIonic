@@ -1,0 +1,32 @@
+<ion-header collapse="condense" [translucent]="true">
+    <ion-toolbar>
+        <ion-title>
+            Accueil
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <div data-aos="fade-right">
+        <ion-card *ngFor="let item of dataLoaded" (click)="editProperty(item)">
+            <ion-card-header>
+                <ion-card-title>{{item.order}}. {{item.name |titlecase}}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+                <div class="language-img">
+                    <img style="height: 100px;" [src]="item.imgUrl" [alt]="item.name">
+                </div>
+                <div class="card-icon-action">
+                    <a (click)="openProperty()">
+                        <ion-icon slot="start" name="open"></ion-icon>
+                    </a>
+                </div>
+            </ion-card-content>
+        </ion-card>
+    </div>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button>
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+</ion-content>

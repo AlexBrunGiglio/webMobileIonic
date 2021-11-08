@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, NavController } from '@ionic/angular';
 import { languageKey } from '../../environments/constant';
 import { RoutesList } from '../../environments/routes';
-import { LanguageComponent } from '../components/language-dialog/language-dialog.component';
+import { MainDataList } from '../app.component';
 
-export interface Language {
+export interface Type {
   name: string;
   order: number;
   imgUrl: string;
@@ -16,31 +16,21 @@ export interface Language {
 })
 export class Tab1Page {
   routes = RoutesList;
-  languageList: Language[] = [];
+  dataList: MainDataList[] = [];
 
   constructor(
     public modalController: ModalController,
+    private navCtrl: NavController,
   ) {
     this.loadData();
   }
 
   loadData() {
-    const jsonLanguageList: Language[] = JSON.parse(localStorage.getItem(languageKey));
-    this.languageList = jsonLanguageList.sort((a, b) => a.order - b.order);
+    const jsonDataList: MainDataList[] = JSON.parse(localStorage.getItem(languageKey));
+    this.dataList = jsonDataList.sort((a, b) => a.order - b.order);
   }
 
-  async editProperty(item: Language) {
-    const modal = await this.modalController.create({
-      component: LanguageComponent,
-      componentProps: {
-        item: item,
-      },
-    });
-    return await modal.present();
-  }
-
-
-  openProperty() {
-    // 
+  public openItem(item: MainDataList): void {
+    this.navCtrl.navigateForward(['/' + RoutesList.Home + '/' + item.code]);
   }
 }

@@ -6,6 +6,7 @@ import { Tab1Page } from './tab1.page';
 
 import { RouterModule, Routes } from '@angular/router';
 import { LanguageModule } from '../components/language-dialog/language-dialog.module';
+import { DetailsPropertyPage } from './details-properties/details-property.page';
 
 
 const routes: Routes = [

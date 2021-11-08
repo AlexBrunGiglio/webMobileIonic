@@ -16,6 +16,10 @@ const routes: Routes = [
         loadChildren: () => import('../home/tab1.module').then(m => m.Tab1PageModule)
       },
       {
+        path: RoutesList.Home + '/:code',
+        loadChildren: () => import('../home/details-properties/details-property.module').then(m => m.PageDetailsPropertyModule)
+      },
+      {
         path: RoutesList.Other,
         loadChildren: () => import('../other/tab2.module').then(m => m.Tab2PageModule)
       },

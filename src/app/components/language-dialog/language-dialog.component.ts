@@ -1,6 +1,6 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { Language } from '../../home/tab1.page';
+import { Type } from '../../home/tab1.page';
 
 @Component({
     selector: 'app-language-dialog',
@@ -8,7 +8,7 @@ import { Language } from '../../home/tab1.page';
     styleUrls: ['./language-dialog.component.scss']
 })
 export class LanguageComponent implements OnInit {
-    @Input() item: Language;
+    @Input() item: Type;
     constructor(
         public modal: ModalController,
     ) {

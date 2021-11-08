@@ -7,24 +7,17 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div data-aos="fade-right">
-    <ion-card *ngFor="let language of languageList" (click)="editProperty(language)">
-      <ion-card-header>
-        <ion-card-title>{{language.order}}. {{language.name |titlecase}}</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <div class="language-img">
-          <img style="height: 100px;" [src]="language.imgUrl" [alt]="language.name">
-        </div>
-        <div class="card-icon-action">
-          <!-- <a (click)="editProperty(language)">
-            <ion-icon slot="start" name=""></ion-icon>
-          </a> -->
-          <a (click)="openProperty()">
-            <ion-icon slot="start" name="open"></ion-icon>
-          </a>
-        </div>
-      </ion-card-content>
-    </ion-card>
-  </div>
+  <ion-list lines="none">
+    <ion-item *ngFor="let item of dataList" detail="true" (click)="openItem(item)">
+      <ion-label class="ion-text-wrap">
+        <h3>{{item.name}}</h3>
+        <p>Description</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
