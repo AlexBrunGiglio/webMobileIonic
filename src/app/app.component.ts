@@ -8,6 +8,7 @@ export interface MainDataList {
   order: number;
   code: string;
   values: Type[];
+  description: string;
 }
 @Component({
   selector: 'app-root',
@@ -105,12 +106,14 @@ export class AppComponent {
         order: 1,
         code: 'languages',
         values: languageData,
+        description: 'Mon top des langages de programmation.'
       },
       {
         name: 'Phone',
         order: 1,
         code: 'phones',
         values: phoneData,
+        description: 'Mon top des marques de constructeurs de téléphones.'
       },
     ];
     if (!localStorage.getItem(languageKey)) {

@@ -11,7 +11,7 @@
     <ion-item *ngFor="let item of dataList" detail="true" (click)="openItem(item)">
       <ion-label class="ion-text-wrap">
         <h3>{{item.name}}</h3>
-        <p>Description</p>
+        <p>{{item.description}}</p>
       </ion-label>
     </ion-item>
   </ion-list>
